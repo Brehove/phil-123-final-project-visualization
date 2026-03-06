@@ -1,0 +1,32 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#F7EFE7"/>
+  <circle cx="948" cy="184" r="132" fill="#D9ECE8"/>
+  <circle cx="214" cy="736" r="144" fill="#F5D8CC"/>
+  <rect x="136" y="144" width="928" height="612" rx="42" fill="#FFF8F0" stroke="#17384A" stroke-opacity="0.1" stroke-width="6"/>
+  <rect x="184" y="194" width="312" height="416" rx="28" fill="#D9ECE8"/>
+  <rect x="220" y="232" width="240" height="120" rx="24" fill="#FFF8F0"/>
+  <text x="252" y="302" fill="#17384A" font-family="Arial, sans-serif" font-size="34" font-weight="700">Creator Rights</text>
+  <text x="284" y="338" fill="#506777" font-family="Arial, sans-serif" font-size="22">kit</text>
+  <rect x="220" y="382" width="106" height="86" rx="20" fill="#C8644D"/>
+  <rect x="354" y="382" width="106" height="86" rx="20" fill="#0F7B82"/>
+  <rect x="220" y="496" width="240" height="76" rx="20" fill="#FFF1E8"/>
+  <rect x="254" y="524" width="98" height="18" rx="9" fill="#17384A" fill-opacity="0.14"/>
+  <rect x="556" y="194" width="210" height="162" rx="24" fill="#FFF1E8"/>
+  <rect x="584" y="228" width="154" height="18" rx="9" fill="#C8644D"/>
+  <rect x="584" y="262" width="112" height="18" rx="9" fill="#17384A" fill-opacity="0.12"/>
+  <rect x="808" y="194" width="210" height="162" rx="24" fill="#FFF8F0"/>
+  <rect x="836" y="228" width="126" height="18" rx="9" fill="#0F7B82"/>
+  <rect x="836" y="262" width="82" height="18" rx="9" fill="#17384A" fill-opacity="0.12"/>
+  <rect x="556" y="390" width="462" height="170" rx="30" fill="#D9ECE8"/>
+  <rect x="594" y="430" width="168" height="90" rx="22" fill="#FFF8F0"/>
+  <rect x="786" y="430" width="194" height="90" rx="22" fill="#FFF8F0"/>
+  <path d="M870 448H938V516H870V448Z" fill="#FFF1E8"/>
+  <path d="M888 468H920V500H888V468Z" fill="#17384A"/>
+  <rect x="556" y="592" width="208" height="108" rx="24" fill="#FFF8F0"/>
+  <rect x="810" y="592" width="208" height="108" rx="24" fill="#FFF1E8"/>
+  <rect x="594" y="630" width="132" height="18" rx="9" fill="#17384A" fill-opacity="0.14"/>
+  <rect x="848" y="630" width="132" height="18" rx="9" fill="#17384A" fill-opacity="0.14"/>
+  <circle cx="988" cy="650" r="42" fill="#17384A"/>
+  <circle cx="988" cy="650" r="22" fill="#FFF8F0"/>
+  <text x="184" y="698" fill="#17384A" font-family="Arial, sans-serif" font-size="40" font-weight="700">Physical toolkit for campus creator culture</text>
+</svg>

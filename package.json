@@ -1,0 +1,14 @@
+{
+  "name": "phil-123-",
+  "version": "1.0.0",
+  "description": "Immersive HTML visualization of the PHIL 123 final project.",
+  "main": "index.html",
+  "scripts": {
+    "preview": "python3 -m http.server 4173",
+    "playwright:install": "uv run --with playwright python -m playwright install chromium",
+    "test:playwright": "uv run --with playwright python qa/playwright_smoke.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

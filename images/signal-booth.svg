@@ -1,0 +1,32 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#F5E9DC"/>
+  <circle cx="178" cy="182" r="124" fill="#D5ECE7"/>
+  <circle cx="1016" cy="736" r="154" fill="#F7D4C6"/>
+  <rect x="126" y="668" width="948" height="84" rx="30" fill="#E7D8C7"/>
+  <rect x="296" y="142" width="608" height="510" rx="42" fill="#17384A"/>
+  <rect x="344" y="198" width="512" height="402" rx="28" fill="#FFF8F0"/>
+  <path d="M296 210C296 160.294 336.294 120 386 120H814C863.706 120 904 160.294 904 210V240H296V210Z" fill="#0F7B82"/>
+  <text x="456" y="198" fill="#FFF8F0" font-family="Arial, sans-serif" font-size="42" font-weight="700">SIGNAL BOOTH</text>
+  <rect x="390" y="278" width="420" height="118" rx="24" fill="#D5ECE7"/>
+  <rect x="424" y="316" width="96" height="20" rx="10" fill="#17384A" fill-opacity="0.12"/>
+  <rect x="424" y="350" width="158" height="20" rx="10" fill="#17384A" fill-opacity="0.12"/>
+  <circle cx="694" cy="336" r="38" fill="#C8644D"/>
+  <text x="630" y="346" fill="#FFF8F0" font-family="Arial, sans-serif" font-size="26" font-weight="700">REAL?</text>
+  <rect x="390" y="426" width="190" height="130" rx="24" fill="#FFF1E8"/>
+  <rect x="616" y="426" width="194" height="130" rx="24" fill="#FFF8F0"/>
+  <rect x="428" y="466" width="114" height="18" rx="9" fill="#C8644D"/>
+  <rect x="428" y="500" width="84" height="18" rx="9" fill="#17384A" fill-opacity="0.12"/>
+  <rect x="650" y="466" width="126" height="18" rx="9" fill="#0F7B82"/>
+  <rect x="650" y="500" width="72" height="18" rx="9" fill="#17384A" fill-opacity="0.12"/>
+  <rect x="118" y="296" width="126" height="246" rx="30" fill="#FFF8F0" stroke="#17384A" stroke-opacity="0.12" stroke-width="4"/>
+  <rect x="956" y="296" width="126" height="246" rx="30" fill="#FFF8F0" stroke="#17384A" stroke-opacity="0.12" stroke-width="4"/>
+  <rect x="146" y="334" width="70" height="18" rx="9" fill="#0F7B82" fill-opacity="0.72"/>
+  <rect x="146" y="370" width="84" height="18" rx="9" fill="#17384A" fill-opacity="0.14"/>
+  <rect x="982" y="334" width="70" height="18" rx="9" fill="#C8644D" fill-opacity="0.8"/>
+  <rect x="982" y="370" width="84" height="18" rx="9" fill="#17384A" fill-opacity="0.14"/>
+  <circle cx="228" cy="700" r="38" fill="#17384A"/>
+  <rect x="206" y="738" width="44" height="86" rx="22" fill="#17384A"/>
+  <circle cx="968" cy="700" r="38" fill="#0F7B82"/>
+  <rect x="946" y="738" width="44" height="86" rx="22" fill="#0F7B82"/>
+  <text x="362" y="714" fill="#17384A" font-family="Arial, sans-serif" font-size="40" font-weight="700">Pop-up challenge booth for campus events</text>
+</svg>

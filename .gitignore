@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+qa-output/
+qa/__pycache__/
+*.pyc

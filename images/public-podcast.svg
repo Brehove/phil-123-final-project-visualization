@@ -1,0 +1,21 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#EEF3F2"/>
+  <circle cx="244" cy="170" r="126" fill="#F5D7CB"/>
+  <circle cx="986" cy="726" r="158" fill="#D8ECE8"/>
+  <rect x="136" y="156" width="928" height="588" rx="42" fill="#FFF8F0" stroke="#17384A" stroke-opacity="0.1" stroke-width="6"/>
+  <rect x="202" y="224" width="260" height="360" rx="28" fill="#17384A"/>
+  <rect x="284" y="266" width="96" height="184" rx="48" fill="#FFF8F0"/>
+  <rect x="314" y="452" width="36" height="82" rx="18" fill="#FFF8F0"/>
+  <rect x="256" y="536" width="152" height="24" rx="12" fill="#FFF8F0"/>
+  <circle cx="680" cy="324" r="118" fill="#D8ECE8"/>
+  <path d="M608 324C632 278 658 260 680 260C706 260 728 282 752 324" stroke="#17384A" stroke-width="12" stroke-linecap="round"/>
+  <path d="M608 324C632 370 658 388 680 388C706 388 728 366 752 324" stroke="#17384A" stroke-width="12" stroke-linecap="round"/>
+  <rect x="522" y="478" width="378" height="122" rx="26" fill="#FFF1E8"/>
+  <rect x="556" y="516" width="120" height="18" rx="9" fill="#C8644D"/>
+  <rect x="556" y="548" width="188" height="18" rx="9" fill="#17384A" fill-opacity="0.12"/>
+  <rect x="556" y="580" width="148" height="18" rx="9" fill="#17384A" fill-opacity="0.1"/>
+  <rect x="948" y="244" width="68" height="224" rx="34" fill="#FFF8F0" stroke="#17384A" stroke-opacity="0.1" stroke-width="4"/>
+  <rect x="962" y="272" width="40" height="10" rx="5" fill="#17384A" fill-opacity="0.12"/>
+  <rect x="962" y="308" width="40" height="98" rx="20" fill="#0F7B82"/>
+  <text x="182" y="676" fill="#17384A" font-family="Arial, sans-serif" font-size="40" font-weight="700">Podcast mini-series for public media literacy</text>
+</svg>

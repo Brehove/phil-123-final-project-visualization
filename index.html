@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHIL 123 Final Project | Build Like a Philosopher</title>
+    <meta
+      name="description"
+      content="An immersive visual guide to the PHIL 123 final project, from Deep Research through final artifact and documentation."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+    <div class="ambient ambient-c" aria-hidden="true"></div>
+
+    <div class="page-shell">
+      <header class="hero section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">PHIL 123 Final Project</p>
+          <h1>Build Like a Philosopher.</h1>
+          <p class="hero-lead">
+            This capstone is not a stack of separate assignments. It is one long design
+            journey where students research, define a meaningful problem, choose a
+            pathway, build toward a public-facing artifact, and explain every major
+            ethical choice they made along the way.
+          </p>
+          <blockquote class="hero-question">
+            What should I build, and why?
+          </blockquote>
+          <div class="hero-actions">
+            <button class="button button-primary" data-scroll="#journey">
+              Trace the Journey
+            </button>
+            <button class="button button-secondary" data-scroll="#pathways">
+              Compare the Pathways
+            </button>
+          </div>
+          <div class="stat-row" id="stats"></div>
+        </div>
+
+        <div class="hero-diagram panel reveal">
+          <p class="diagram-label">Double Diamond, translated into course time</p>
+          <svg
+            class="diamond-graphic"
+            viewBox="0 0 760 420"
+            role="img"
+            aria-label="A visual map of the project phases from Discover to Deliver"
+          >
+            <defs>
+              <linearGradient id="journeyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0f7b82"></stop>
+                <stop offset="50%" stop-color="#d59837"></stop>
+                <stop offset="100%" stop-color="#c8644d"></stop>
+              </linearGradient>
+            </defs>
+            <path
+              class="diamond-outline"
+              d="M48 210 L174 84 L300 210 L174 336 Z"
+            ></path>
+            <path
+              class="diamond-outline"
+              d="M300 210 L430 84 L560 210 L430 336 Z"
+            ></path>
+            <path
+              class="journey-line"
+              d="M48 210 C108 210 122 210 174 210 S248 210 300 210 S382 210 430 210 S520 210 560 210 S664 210 712 210"
+            ></path>
+            <g class="stage-node-group">
+              <circle class="stage-node" data-stage-node="discover" cx="88" cy="210" r="18"></circle>
+              <circle class="stage-node" data-stage-node="define" cx="174" cy="210" r="18"></circle>
+              <circle class="stage-node" data-stage-node="develop" cx="270" cy="210" r="18"></circle>
+              <circle class="stage-node" data-stage-node="spec" cx="390" cy="210" r="18"></circle>
+              <circle class="stage-node" data-stage-node="draft" cx="530" cy="210" r="18"></circle>
+              <circle class="stage-node" data-stage-node="deliver" cx="670" cy="210" r="18"></circle>
+            </g>
+            <g class="stage-text">
+              <text x="88" y="256">8-10</text>
+              <text x="174" y="256">11</text>
+              <text x="270" y="256">12</text>
+              <text x="390" y="256">13</text>
+              <text x="530" y="256">14-15</text>
+              <text x="670" y="256">16</text>
+            </g>
+          </svg>
+          <div class="stage-strip">
+            <article class="stage-card" data-stage-card="discover">
+              <span class="stage-range">Modules 8-10</span>
+              <strong>Discover</strong>
+              <p>Deep research across three AI ethics zones.</p>
+            </article>
+            <article class="stage-card" data-stage-card="define">
+              <span class="stage-range">Module 11</span>
+              <strong>Define</strong>
+              <p>Translate broad research into one clear, actionable problem.</p>
+            </article>
+            <article class="stage-card" data-stage-card="develop">
+              <span class="stage-range">Module 12</span>
+              <strong>Develop</strong>
+              <p>Compare concepts, weigh tradeoffs, and commit to one direction.</p>
+            </article>
+            <article class="stage-card" data-stage-card="spec">
+              <span class="stage-range">Module 13</span>
+              <strong>Spec</strong>
+              <p>Turn values into a detailed plan with stakeholders, risks, and scope.</p>
+            </article>
+            <article class="stage-card" data-stage-card="draft">
+              <span class="stage-range">Modules 14-15</span>
+              <strong>Draft + Revise</strong>
+              <p>Build, self-assess, gather peer feedback, and iterate.</p>
+            </article>
+            <article class="stage-card" data-stage-card="deliver">
+              <span class="stage-range">Module 16</span>
+              <strong>Deliver</strong>
+              <p>Submit the final artifact and explain the process behind it.</p>
+            </article>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section journey" id="journey">
+          <div class="section-heading reveal">
+            <p class="eyebrow">What Students Will Be Doing</p>
+            <h2>Every module advances the same project.</h2>
+            <p>
+              Click through the module arc to see how research becomes a defined
+              problem, then a concept, then a tested and revised artifact.
+            </p>
+          </div>
+
+          <div class="journey-layout">
+            <aside class="module-list panel reveal" id="module-list" aria-label="Module timeline"></aside>
+
+            <article class="module-detail panel reveal" aria-live="polite">
+              <div class="detail-top">
+                <div>
+                  <p class="eyebrow" id="detail-kicker"></p>
+                  <h3 id="detail-title"></h3>
+                </div>
+                <div class="progress-ring" aria-hidden="true">
+                  <svg viewBox="0 0 120 120">
+                    <circle class="ring-base" cx="60" cy="60" r="52"></circle>
+                    <circle class="ring-progress" cx="60" cy="60" r="52"></circle>
+                  </svg>
+                  <div class="ring-value" id="progress-label"></div>
+                </div>
+              </div>
+
+              <p class="detail-copy" id="detail-copy"></p>
+              <div class="detail-tags" id="detail-tags"></div>
+
+              <div class="detail-grid">
+                <div class="detail-cell">
+                  <span class="label">Main Focus</span>
+                  <p id="detail-focus"></p>
+                </div>
+                <div class="detail-cell">
+                  <span class="label">Deliverable</span>
+                  <p id="detail-deliverable"></p>
+                </div>
+                <div class="detail-cell">
+                  <span class="label">Student Work</span>
+                  <p id="detail-work"></p>
+                </div>
+                <div class="detail-cell">
+                  <span class="label">Why It Matters</span>
+                  <p id="detail-why"></p>
+                </div>
+              </div>
+
+              <div class="phase-track" id="phase-track"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section pathways" id="pathways">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Two Pathways</p>
+            <h2>Students choose how their philosophical work reaches the world.</h2>
+            <p>
+              Both routes share the same research and ethics foundation. The choice is
+              about mode: build a concrete intervention, or communicate ideas for a
+              broader public.
+            </p>
+          </div>
+
+          <div class="pathway-shell panel reveal">
+            <div class="pathway-switch" role="tablist" aria-label="Project pathways">
+              <button class="pathway-button is-active" data-pathway-button="builder" type="button">
+                Philosopher-Builder
+              </button>
+              <button class="pathway-button" data-pathway-button="public" type="button">
+                Public Philosophy
+              </button>
+            </div>
+
+            <div class="pathway-layout">
+              <article class="pathway-primary">
+                <p class="eyebrow" id="pathway-kicker"></p>
+                <h3 id="pathway-title"></h3>
+                <p class="pathway-copy" id="pathway-copy"></p>
+
+                <div class="artifact-frame">
+                  <div class="artifact-card artifact-card-a" id="artifact-card-a"></div>
+                  <div class="artifact-card artifact-card-b" id="artifact-card-b"></div>
+                </div>
+              </article>
+
+              <aside class="pathway-meta">
+                <div class="meta-card">
+                  <span class="label">Best For</span>
+                  <p id="pathway-best"></p>
+                </div>
+                <div class="meta-card">
+                  <span class="label">Possible Artifacts</span>
+                  <ul id="pathway-artifacts"></ul>
+                </div>
+                <div class="meta-card">
+                  <span class="label">Example Arc</span>
+                  <p id="pathway-example"></p>
+                </div>
+              </aside>
+            </div>
+
+            <div class="shared-row">
+              <p class="shared-label">Both pathways share</p>
+              <div class="shared-band" id="shared-band"></div>
+            </div>
+
+            <div class="pathway-examples">
+              <article class="example-gallery">
+                <p class="eyebrow">Concrete Examples</p>
+                <h4 id="example-gallery-title"></h4>
+                <p class="example-gallery-copy" id="example-gallery-copy"></p>
+                <div class="example-card-grid" id="example-card-grid"></div>
+              </article>
+
+              <article class="example-detail panel">
+                <div class="example-detail-head">
+                  <div>
+                    <p class="eyebrow" id="example-detail-kicker"></p>
+                    <h4 id="example-detail-title"></h4>
+                  </div>
+                  <span class="example-badge" id="example-detail-badge"></span>
+                </div>
+
+                <p class="example-detail-copy" id="example-detail-copy"></p>
+
+                <div class="example-detail-grid">
+                  <div class="detail-cell">
+                    <span class="label">Problem</span>
+                    <p id="example-problem"></p>
+                  </div>
+                  <div class="detail-cell">
+                    <span class="label">Deliverable</span>
+                    <p id="example-deliverable"></p>
+                  </div>
+                  <div class="detail-cell">
+                    <span class="label">Audience</span>
+                    <p id="example-audience"></p>
+                  </div>
+                  <div class="detail-cell">
+                    <span class="label">Why It Fits This Pathway</span>
+                    <p id="example-fit"></p>
+                  </div>
+                </div>
+
+                <div class="example-preview" id="example-preview"></div>
+                <div class="example-part-grid" id="example-part-grid"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section actions" id="actions">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Studio Workflow</p>
+            <h2>The work is research, design, revision, and explanation.</h2>
+            <p>
+              The assignment asks students to move between inquiry and making, and to
+              keep their ethical reasoning visible the whole time.
+            </p>
+          </div>
+
+          <div class="action-grid" id="action-grid"></div>
+        </section>
+
+        <section class="section milestones" id="milestones">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Milestone Deliverables</p>
+            <h2>Each checkpoint narrows ambiguity and raises the level of commitment.</h2>
+            <p>
+              Click a milestone to inspect what students have to bring forward from one
+              stage to the next.
+            </p>
+          </div>
+
+          <div class="milestone-grid" id="milestone-grid"></div>
+        </section>
+
+        <section class="section finale" id="finale">
+          <div class="finale-layout">
+            <article class="submission-column panel reveal">
+              <p class="eyebrow">Final Submission</p>
+              <h2>Students finish with something made and something understood.</h2>
+              <p class="submission-copy">
+                The capstone culminates in a real artifact plus a reflective document
+                that explains the problem, design decisions, philosophical influences,
+                and AI partnership behind it.
+              </p>
+
+              <div class="submission-grid">
+                <div class="submission-card">
+                  <span class="submission-number">01</span>
+                  <h3>The Artifact</h3>
+                  <p>
+                    The main creative deliverable: a prototype, curriculum, event plan,
+                    podcast, zine, interactive site, campaign, or other pathway-aligned
+                    outcome.
+                  </p>
+                </div>
+                <div class="submission-card">
+                  <span class="submission-number">02</span>
+                  <h3>Project Documentation</h3>
+                  <p>
+                    A public-facing reflective essay that makes the process legible to
+                    someone who did not watch the project unfold.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <aside class="reflection-column panel reveal">
+              <p class="eyebrow">Documentation Sections</p>
+              <h3>What the reflection has to make visible</h3>
+              <div class="reflection-list" id="reflection-list"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="section ai" id="ai">
+          <div class="section-heading reveal">
+            <p class="eyebrow">AI Use Policy</p>
+            <h2>AI is allowed, but invisible outsourcing is not.</h2>
+            <p>
+              Students can partner with AI throughout the project, but they must disclose
+              the tools, explain how they used them, and show how they verified and
+              refined the output.
+            </p>
+          </div>
+
+          <div class="ai-layout">
+            <article class="policy-card panel reveal">
+              <p class="eyebrow">Where AI Is Allowed</p>
+              <div class="policy-table" id="policy-table"></div>
+            </article>
+
+            <article class="policy-card panel reveal">
+              <p class="eyebrow">What Students Must Do</p>
+              <div class="workflow-steps" id="workflow-steps"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
