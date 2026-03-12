@@ -13,12 +13,12 @@ const modules = [
     title: "Big Data + Algorithmic Bias",
     deliverable: "Zone 1 Deep Research Report",
     copy:
-      "Students begin by investigating how data collection, classification, and optimization choices produce uneven consequences in the real world.",
+      "Students choose a field or context they care about and keep it for the rest of the course. Using an AI Deep Research tool, they investigate how big data and algorithmic bias shape that context and start connecting module concepts to their own interests.",
     work:
-      "Research one ethics zone deeply, gather evidence, and start identifying who benefits, who is harmed, and where design decisions matter most.",
+      "Pick a personal field or context, generate a Deep Research report on big data and bias within it, then evaluate the results: overall impression, key source with APA citation, three ethical questions using course frameworks, and an AI process reflection.",
     why:
-      "This opening phase prevents shallow solutionism by making students sit inside a live ethical landscape before they propose interventions.",
-    tags: ["research", "bias", "stakeholders"],
+      "This is where students start seeing how the ethics concepts from the course apply to something they actually care about. That personal connection feeds every decision they make later.",
+    tags: ["field selection", "deep research", "bias"],
     accent: "#0f7b82",
   },
   {
@@ -28,12 +28,12 @@ const modules = [
     title: "Automation + Robotics",
     deliverable: "Zone 2 Deep Research Report",
     copy:
-      "The project widens into questions about labor, efficiency, autonomy, and what humans lose or gain when systems take over more decisions.",
+      "Students apply the same Deep Research process to a second ethics zone, exploring how automation and robotics affect their chosen field. The goal is to deepen their understanding of how course themes land differently depending on context.",
     work:
-      "Compare how automation restructures work, responsibility, and trust in a specific context students care about.",
+      "Generate a Deep Research report on automation and robotics in their field, then evaluate the results: overall impression, key source with APA citation, three ethical questions using course frameworks, and an AI process reflection.",
     why:
-      "Students learn that AI ethics is not only about models and outputs. It is also about institutional design and redistributed human agency.",
-    tags: ["automation", "labor", "tradeoffs"],
+      "A second zone gives students contrast. They start seeing patterns and tensions across topics, which is what they will need when it is time to define a problem worth solving.",
+    tags: ["automation", "deep research", "ethical frameworks"],
     accent: "#0f7b82",
   },
   {
@@ -43,12 +43,12 @@ const modules = [
     title: "Creativity + Innovation",
     deliverable: "Zone 3 Deep Research Report + Synthesis",
     copy:
-      "By the end of research, students have explored three distinct AI ethics zones and have enough contrast to synthesize what problem actually matters to them.",
+      "Students complete the third ethics zone and then synthesize across all three. They identify patterns, gaps, and audiences to prepare for articulating a problem statement and choosing their project pathway.",
     work:
-      "Complete the third research report, then pull patterns across all three zones to identify a problem worth carrying into the rest of the semester.",
+      "Generate a final Deep Research report on AI and creativity in their field, evaluate it the same way, then write a synthesis identifying cross-zone patterns, unmet needs, target audiences, and whether they lean toward building or communicating.",
     why:
-      "This is where curiosity turns into direction. Students stop collecting topics and start choosing a problem space.",
-    tags: ["synthesis", "pattern finding", "direction"],
+      "Three zones of applied research give students enough material to move from broad curiosity to a specific problem. The synthesis is the bridge to the Problem Brief in Module 11.",
+    tags: ["synthesis", "pattern finding", "pathway inclination"],
     accent: "#0f7b82",
   },
   {
@@ -582,28 +582,12 @@ const workflowStepsContainer = document.querySelector("#workflow-steps");
 const actionGrid = document.querySelector("#action-grid");
 const statsContainer = document.querySelector("#stats");
 const ringProgress = document.querySelector(".ring-progress");
-const pathwayShell = document.querySelector(".pathway-shell");
-const pathwayButtons = [...document.querySelectorAll("[data-pathway-button]")];
+const pathwayComparison = document.querySelector("#pathway-comparison");
 const phaseCardNodes = [...document.querySelectorAll("[data-stage-card]")];
 const phaseSvgNodes = [...document.querySelectorAll("[data-stage-node]")];
-const exampleGalleryTitle = document.querySelector("#example-gallery-title");
-const exampleGalleryCopy = document.querySelector("#example-gallery-copy");
-const exampleCardGrid = document.querySelector("#example-card-grid");
-const exampleDetailKicker = document.querySelector("#example-detail-kicker");
-const exampleDetailTitle = document.querySelector("#example-detail-title");
-const exampleDetailBadge = document.querySelector("#example-detail-badge");
-const exampleDetailCopy = document.querySelector("#example-detail-copy");
-const exampleProblem = document.querySelector("#example-problem");
-const exampleDeliverable = document.querySelector("#example-deliverable");
-const exampleAudience = document.querySelector("#example-audience");
-const exampleFit = document.querySelector("#example-fit");
-const examplePreview = document.querySelector("#example-preview");
-const examplePartGrid = document.querySelector("#example-part-grid");
 
 let activeModuleIndex = 0;
 let activeMilestoneIndex = 0;
-let activePathwayKey = "builder";
-let activePathwayExampleIndex = 0;
 let autoRotate = true;
 
 function renderStats() {
@@ -695,164 +679,33 @@ function setActiveModule(index) {
   });
 }
 
-function renderPathway(key) {
-  const pathway = pathways[key];
-  const spotlight = pathway.examples[0];
-  activePathwayKey = key;
-  activePathwayExampleIndex = 0;
-  pathwayShell.dataset.pathway = key;
+function renderPathwayComparison() {
+  pathwayComparison.innerHTML = ["builder", "public"]
+    .map((key) => {
+      const pw = pathways[key];
+      return `
+        <article class="pathway-card panel">
+          <p class="eyebrow">${pw.kicker}</p>
+          <h3>${pw.title}</h3>
+          <p class="pathway-card-copy">${pw.copy}</p>
 
-  pathwayButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.pathwayButton === key);
-    button.setAttribute("aria-selected", String(button.dataset.pathwayButton === key));
-  });
-
-  document.querySelector("#pathway-kicker").textContent = pathway.kicker;
-  document.querySelector("#pathway-title").textContent = pathway.title;
-  document.querySelector("#pathway-copy").textContent = pathway.copy;
-  document.querySelector("#pathway-best").textContent = pathway.best;
-  document.querySelector("#pathway-example").textContent = pathway.example;
-  document.querySelector("#pathway-artifacts").innerHTML = pathway.artifacts
-    .map((artifact) => `<li>${artifact}</li>`)
-    .join("");
-
-  document.querySelector("#artifact-card-a").innerHTML = `
-    <div class="artifact-spotlight">
-      <img
-        class="artifact-spotlight-image"
-        src="${spotlight.image}"
-        alt="${spotlight.imageAlt}"
-        loading="lazy"
-      >
-      <div class="artifact-spotlight-copy">
-        <span class="label">Spotlight Example</span>
-        <h4>${spotlight.title}</h4>
-        <p>${spotlight.summary}</p>
-      </div>
-    </div>
-  `;
-  document.querySelector("#artifact-card-b").innerHTML = `
-    <div class="artifact-principle-card">
-      <span class="label">Core Logic</span>
-      <h4>${pathway.cardA.title}</h4>
-      <p>${pathway.cardA.text}</p>
-    </div>
-    <div class="artifact-principle-card">
-      <span class="label">Why It Matters</span>
-      <h4>${pathway.cardB.title}</h4>
-      <p>${pathway.cardB.text}</p>
-    </div>
-  `;
-
-  renderPathwayExamples();
-}
-
-function renderPathwayExamples() {
-  const pathway = pathways[activePathwayKey];
-
-  exampleGalleryTitle.textContent = pathway.galleryTitle;
-  exampleGalleryCopy.textContent = pathway.galleryCopy;
-  exampleCardGrid.innerHTML = pathway.examples
-    .map(
-      (example, index) => `
-        <button
-          type="button"
-          class="example-card${index === activePathwayExampleIndex ? " is-active" : ""}"
-          data-example-index="${index}"
-          aria-pressed="${index === activePathwayExampleIndex ? "true" : "false"}"
-        >
-          <div class="example-card-visual">
-            <img
-              class="example-card-image"
-              src="${example.image}"
-              alt="${example.imageAlt}"
-              loading="lazy"
-            >
-            <div class="example-chip-row">
-              <span class="example-chip">${example.format}</span>
-              <span class="example-chip">${example.output}</span>
-            </div>
+          <div class="pathway-card-meta">
+            <span class="label">Best For</span>
+            <p>${pw.best}</p>
           </div>
-          <div class="example-card-copy">
-            <span class="module-number">${example.audience}</span>
-            <strong>${example.title}</strong>
-            <p>${example.challenge}</p>
+
+          <div class="pathway-card-meta">
+            <span class="label">Possible Artifacts</span>
+            <ul>${pw.artifacts.map((a) => `<li>${a}</li>`).join("")}</ul>
           </div>
-        </button>
-      `
-    )
-    .join("");
 
-  exampleCardGrid.querySelectorAll(".example-card").forEach((button) => {
-    button.addEventListener("click", () => {
-      setActivePathwayExample(Number(button.dataset.exampleIndex));
-    });
-  });
-
-  setActivePathwayExample(activePathwayExampleIndex);
-}
-
-function setActivePathwayExample(index) {
-  activePathwayExampleIndex = index;
-  const example = pathways[activePathwayKey].examples[index];
-
-  exampleCardGrid.querySelectorAll(".example-card").forEach((card, cardIndex) => {
-    const isActive = cardIndex === index;
-    card.classList.toggle("is-active", isActive);
-    card.setAttribute("aria-pressed", String(isActive));
-  });
-
-  exampleDetailKicker.textContent = `${example.format} • ${example.output}`;
-  exampleDetailTitle.textContent = example.title;
-  exampleDetailBadge.textContent = example.badge;
-  exampleDetailCopy.textContent = example.summary;
-  exampleProblem.textContent = example.problem;
-  exampleDeliverable.textContent = example.deliverable;
-  exampleAudience.textContent = example.audience;
-  exampleFit.textContent = example.fit;
-
-  examplePreview.innerHTML = `
-    <div class="example-preview-stack">
-      <div class="example-preview-image-shell">
-        <img
-          class="example-hero-image"
-          src="${example.image}"
-          alt="${example.imageAlt}"
-          loading="lazy"
-        >
-      </div>
-      <div class="mini-artifact">
-        <div class="mini-artifact-top">
-          <span class="mini-artifact-kicker">${example.preview.kicker}</span>
-          <strong>${example.preview.title}</strong>
-          <p>${example.preview.summary}</p>
-        </div>
-        <div class="mini-artifact-panels">
-          ${example.preview.panels
-            .map(
-              (panel) => `
-                <div class="mini-panel">
-                  <span>Piece</span>
-                  <strong>${panel}</strong>
-                </div>
-              `
-            )
-            .join("")}
-        </div>
-        <div class="mini-artifact-footer">${example.preview.footer}</div>
-      </div>
-    </div>
-  `;
-
-  examplePartGrid.innerHTML = example.parts
-    .map(
-      (part) => `
-        <div class="example-part">
-          <span class="label">Students Build</span>
-          <strong>${part}</strong>
-        </div>
-      `
-    )
+          <div class="pathway-card-meta">
+            <span class="label">Example</span>
+            <p>${pw.example}</p>
+          </div>
+        </article>
+      `;
+    })
     .join("");
 }
 
@@ -933,6 +786,7 @@ function renderReflection() {
 }
 
 function renderPolicy() {
+  if (!policyTable || !workflowStepsContainer) return;
   policyTable.innerHTML = policyRows
     .map(
       (row) => `
@@ -1002,27 +856,18 @@ function setupReveal() {
   });
 }
 
-function bindPathways() {
-  pathwayButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      renderPathway(button.dataset.pathwayButton);
-    });
-  });
-}
-
 function init() {
   renderStats();
   renderModules();
+  renderPathwayComparison();
   renderSharedBand();
   renderActions();
   renderMilestones();
   renderReflection();
   renderPolicy();
   bindScrollButtons();
-  bindPathways();
   setActiveModule(0);
   setActiveMilestone(0);
-  renderPathway("builder");
   setupReveal();
   startAutoRotate();
 }
