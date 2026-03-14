@@ -589,18 +589,91 @@ const phaseSvgNodes = [...document.querySelectorAll("[data-stage-node]")];
 let activeModuleIndex = 0;
 let activeMilestoneIndex = 0;
 let autoRotate = true;
+let currentD1Width = 0;
+let currentD2Width = 0;
+let targetD1Width = 0;
+let targetD2Width = 0;
 
 function renderStats() {
   statsContainer.innerHTML = stats
     .map(
       (stat) => `
         <article class="stat-card">
-          <strong>${stat.value}</strong>
+          <strong data-target="${stat.value}">0</strong>
           <span>${stat.label}</span>
         </article>
       `
     )
     .join("");
+
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  counterObserver.observe(statsContainer);
+}
+
+function animateCounters() {
+  statsContainer.querySelectorAll("strong[data-target]").forEach((el) => {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 800;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  });
+}
+
+function updateDiamondFill(moduleIndex) {
+  targetD1Width = Math.min(1, (moduleIndex + 1) / 4) * 252;
+  targetD2Width = moduleIndex >= 3 ? Math.min(1, (moduleIndex - 3) / 5.5) * 260 : 0;
+}
+
+function animateDiamondFill() {
+  const clipRect1 = document.getElementById("clip-rect-1");
+  const clipRect2 = document.getElementById("clip-rect-2");
+  if (!clipRect1 || !clipRect2) {
+    requestAnimationFrame(animateDiamondFill);
+    return;
+  }
+
+  currentD1Width += (targetD1Width - currentD1Width) * 0.08;
+  currentD2Width += (targetD2Width - currentD2Width) * 0.08;
+
+  if (Math.abs(currentD1Width - targetD1Width) < 0.5) currentD1Width = targetD1Width;
+  if (Math.abs(currentD2Width - targetD2Width) < 0.5) currentD2Width = targetD2Width;
+
+  clipRect1.setAttribute("width", String(currentD1Width));
+  clipRect2.setAttribute("width", String(currentD2Width));
+
+  requestAnimationFrame(animateDiamondFill);
+}
+
+function bindPersonaPicker() {
+  document.querySelectorAll(".persona-choice").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".persona-choice").forEach((b) => {
+        b.classList.toggle("is-selected", b === button);
+      });
+      const target = document.querySelector("#pathway-comparison");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
 }
 
 function renderModules() {
@@ -677,6 +750,8 @@ function setActiveModule(index) {
   phaseSvgNodes.forEach((node) => {
     node.classList.toggle("is-active", node.dataset.stageNode === item.phaseKey);
   });
+
+  updateDiamondFill(index);
 }
 
 function renderPathwayComparison() {
@@ -866,7 +941,9 @@ function init() {
   renderReflection();
   renderPolicy();
   bindScrollButtons();
+  bindPersonaPicker();
   setActiveModule(0);
+  requestAnimationFrame(animateDiamondFill);
   setActiveMilestone(0);
   setupReveal();
   startAutoRotate();

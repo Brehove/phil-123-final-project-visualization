@@ -40,6 +40,16 @@
               Compare the Pathways
             </button>
           </div>
+          <div class="persona-picker" id="persona-picker">
+            <button class="persona-choice" data-persona="builder" type="button">
+              <strong>I want to build something</strong>
+              <span>Tools, systems, frameworks, events</span>
+            </button>
+            <button class="persona-choice" data-persona="public" type="button">
+              <strong>I want to reach people</strong>
+              <span>Podcasts, zines, campaigns, sites</span>
+            </button>
+          </div>
           <div class="stat-row" id="stats"></div>
         </div>
 
@@ -57,7 +67,11 @@
                 <stop offset="50%" stop-color="#d59837"></stop>
                 <stop offset="100%" stop-color="#c8644d"></stop>
               </linearGradient>
+              <clipPath id="clip-d1"><rect id="clip-rect-1" x="48" y="84" width="0" height="252"/></clipPath>
+              <clipPath id="clip-d2"><rect id="clip-rect-2" x="300" y="84" width="0" height="252"/></clipPath>
             </defs>
+            <path class="diamond-fill" d="M48 210 L174 84 L300 210 L174 336 Z" clip-path="url(#clip-d1)"></path>
+            <path class="diamond-fill" d="M300 210 L430 84 L560 210 L430 336 Z" clip-path="url(#clip-d2)"></path>
             <path
               class="diamond-outline"
               d="M48 210 L174 84 L300 210 L174 336 Z"

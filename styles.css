@@ -1219,6 +1219,78 @@ body::after {
   transform: translateY(0);
 }
 
+.diamond-fill {
+  fill: url(#journeyGradient);
+  opacity: 0.32;
+}
+
+.persona-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.persona-choice {
+  appearance: none;
+  border: 1px solid rgba(22, 56, 74, 0.12);
+  background: rgba(255, 250, 243, 0.6);
+  border-radius: 18px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.persona-choice strong {
+  display: block;
+  font: 700 0.95rem/1.15 var(--display-font);
+  color: var(--ink);
+}
+
+.persona-choice span {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.persona-choice:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(22, 56, 74, 0.1);
+}
+
+.persona-choice:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.persona-choice.is-selected {
+  border-color: var(--teal);
+  background: linear-gradient(135deg, rgba(15, 123, 130, 0.12), rgba(255, 250, 243, 0.8));
+  box-shadow: 0 8px 20px rgba(15, 123, 130, 0.15);
+}
+
+.persona-choice[data-persona="public"].is-selected {
+  border-color: var(--coral);
+  background: linear-gradient(135deg, rgba(200, 100, 77, 0.12), rgba(255, 250, 243, 0.8));
+  box-shadow: 0 8px 20px rgba(200, 100, 77, 0.15);
+}
+
+.pathway-layout,
+.pathway-examples,
+.shared-row,
+.example-detail {
+  transition: opacity 150ms ease;
+}
+
+.pathway-layout.is-fading,
+.pathway-examples.is-fading,
+.shared-row.is-fading,
+.example-detail.is-fading {
+  opacity: 0;
+}
+
 @keyframes slide-line {
   from {
     stroke-dashoffset: 0;
@@ -1311,7 +1383,8 @@ body::after {
   .milestone-grid,
   .submission-grid,
   .reflection-list,
-  .pathway-comparison {
+  .pathway-comparison,
+  .persona-picker {
     grid-template-columns: 1fr;
   }
 
